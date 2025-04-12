@@ -9,7 +9,6 @@ export default async function Home() {
     expand: ["data.default_price"],
     limit: 5,
   });
-  console.log(products);
   return (
     <div>
       <section className="rounded bg-neutral-100 py-8 sm:py-12">
@@ -36,6 +35,7 @@ export default async function Home() {
             className="rounded"
             width={450}
             height={450}
+            unoptimized={true}
           />
         </div>
       </section>
