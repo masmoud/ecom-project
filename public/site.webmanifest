@@ -1,0 +1,16 @@
+{
+  "name": "My Ecommerce | Modern E-commerce Platform",
+  "short_name": "My Ecommerce",
+  "description": "A modern e-commerce platform with secure Stripe payments and a great shopping experience",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
