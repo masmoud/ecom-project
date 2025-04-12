@@ -1,36 +1,219 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-commerce Application
+
+A modern e-commerce application built with Next.js, Tailwind CSS, and other cutting-edge technologies.
+
+## Screenshots
+
+### Home Page
+
+![Home Page](./public/screenshots/home-page.png)
+
+---
+
+### Products Page
+
+![Product Page](./public/screenshots/products-page.png)
+
+---
+
+### Product Details Page
+
+![Product Details Page](./public/screenshots/product-details-page.png)
+
+---
+
+### Checkout Page
+
+![Checkout Page](./public/screenshots/checkout-page.png)
+
+---
+
+### Stripe Payment
+
+![Stripe Payment](./public/screenshots/stripe-payment.png)
+
+---
+
+### Checkout Success Page
+
+![Checkout Success Page](./public/screenshots/checkout-success-page.png)
+
+---
+
+## Current Features
+
+- Responsive design with Tailwind CSS
+- Stripe payment integration (test mode)
+- Persistent shopping cart with Zustand
+- Modern and intuitive user interface
+- Performance optimization
+- Demo banner for Stripe test cards
+- Success payment page
+
+---
+
+## Features to Implement
+
+### Authentication
+
+- Registration and login system
+- Email/password authentication
+- Social authentication options (Google)
+- Session and JWT token management
+- Route protection for authenticated users
+
+### Backend
+
+- Next.js API Routes (App Router)
+- PostgreSQL database for user information and orders
+- Prisma ORM for database management
+- Migration system for database schemas
+- Secure endpoints with data validation
+- JWT-based authentication and session handling
+
+### User Profile
+
+- Profile page for managing personal information
+- Order history
+- Delivery address management
+- Notification preferences
+- Password change option
+
+---
+
+## Proposed Technical Stack
+
+### Frontend Technologies
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- Framer Motion for animations
+- Zustand for state management
+- React Hook Form for forms
+- Zod for validation
+
+### Backend Technologies (Updated)
+
+- **Next.js API Routes** — Built-in backend support via the App Router
+- **PostgreSQL** — Relational database for users and orders
+- **Prisma ORM** — Database toolkit for type-safe queries and migrations
+- **JWT** — Authentication tokens for session management
+- **Bcrypt** — Secure password hashing
+- **Zod** — Schema validation and input sanitization
+- **NextAuth.js** (optional) — For full-featured authentication and social login
+- **Middleware API** — Protect routes and validate tokens on the edge
+
+### Infrastructure Options
+
+- Vercel for frontend deployment
+- Supabase or Neon for PostgreSQL database
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- Stripe account (for payments)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/masmoud/ecom-app.git
+cd ecom-app
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Configure environment variables:
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+STRIPE_SECRET_KEY=your_stripe_secret_key
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+ecom-app/
+├── app/                  # Next.js App Router directory
+│   ├── api/              # API routes
+│   ├── checkout/         # Checkout page
+│   ├── products/         # Product pages
+│   ├── success/          # Payment success page
+│   ├── failure/          # Payment failure page
+│   ├── layout.tsx        # Main layout
+│   └── page.tsx          # Home page
+├── components/           # Reusable components
+│   ├── ui/               # UI components (Shadcn)
+│   ├── navbar.tsx        # Navigation bar
+│   ├── product-card.tsx  # Product card
+│   └── ...
+├── lib/                  # Utilities and configurations
+│   ├── stripe.ts         # Stripe configuration
+│   └── utils.ts          # Utility functions
+├── store/                # Global state (Zustand)
+│   └── cart-store.ts     # Cart store
+├── prisma/               # Prisma schema and migrations
+├── public/               # Static assets
+└── ...
+```
 
-## Learn More
+## Implementation Plan for New Features
 
-To learn more about Next.js, take a look at the following resources:
+### Phase 1: Authentication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Set up authentication with NextAuth.js or custom JWT
+2. Create login and registration pages
+3. Integrate social authentication providers
+4. Protect routes that require authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Phase 2: Backend
 
-## Deploy on Vercel
+1. Use Next.js API Routes as backend layer
+2. Set up Prisma with PostgreSQL
+3. Create data models for users and orders
+4. Develop API endpoints for authentication and user data
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Phase 3: User Profile
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create profile page
+2. Implement personal information management
+3. Add order history
+4. Develop delivery address management
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add my feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
