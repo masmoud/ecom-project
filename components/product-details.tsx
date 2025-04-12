@@ -2,6 +2,7 @@
 import { formatPrice } from "@/lib/utils";
 import { useCartStore } from "@/store/cart-store";
 import Image from "next/image";
+import Link from "next/link";
 import Stripe from "stripe";
 import { Button } from "./ui/button";
 interface Props {
@@ -36,7 +37,7 @@ export const ProductDetails = ({ product }: Props) => {
           />
         </div>
       )}
-      <div className="md:w-1/2">
+      <div className="md:w-1/2 text-center">
         <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
         {product.description && <p className="text-gray-700 mb-4">{product.description}</p>}
         {price && price.unit_amount && (
@@ -44,7 +45,7 @@ export const ProductDetails = ({ product }: Props) => {
             {formatPrice(price.unit_amount)}
           </p>
         )}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 justify-center">
           <Button
             className="cursor-pointer"
             variant="outline"
@@ -56,6 +57,16 @@ export const ProductDetails = ({ product }: Props) => {
             +
           </Button>
         </div>
+
+        {quantity > 0 && (
+          <div className="mt-6">
+            <Button
+              asChild
+              className="w-full bg-primary hover:bg-primary/90 transition-all duration-300">
+              <Link href="/checkout">Checkout</Link>
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -17,11 +17,13 @@ export const Navbar = () => {
           <span className="text-gray-600">Ecommerce</span>
         </Link>
         <div className="hidden md:flex text-sm space-x-6">
-          <Link href="/">Home</Link>
-          <Link href="/products" className="hover:text-blue-600">
+          <Link href="/" className="hover:text-blue-600 font-semibold">
+            Home
+          </Link>
+          <Link href="/products" className="hover:text-blue-600 font-semibold">
             Products
           </Link>
-          <Link href="/checkout" className="hover:text-blue-600">
+          <Link href="/checkout" className="hover:text-blue-600 font-semibold">
             Checkout
           </Link>
         </div>
