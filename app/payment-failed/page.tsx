@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const FailurePage = () => {
+const PayementFailed = () => {
   const { clearCart } = useCartStore();
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -80,4 +80,4 @@ const FailurePage = () => {
   );
 };
 
-export default FailurePage;
+export default PayementFailed;
