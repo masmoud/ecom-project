@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Stripe from "stripe";
 import { Card, CardContent, CardTitle } from "./ui/card";
-
+import { formatPrice } from "@/lib/utils";
 interface Props {
   products: Stripe.Product[];
 }
@@ -38,7 +38,7 @@ export const Carousel = ({ products }: Props) => {
       <CardContent className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
         <CardTitle className="text-3xl font-bold text-white mb-2">{currentProduct.name}</CardTitle>
         {price && price.unit_amount && (
-          <p className="text-xl text-white">€{(price.unit_amount / 100).toFixed(2)}</p>
+          <p className="text-xl text-white">{formatPrice(price.unit_amount)}</p>
         )}
       </CardContent>
     </Card>

@@ -1,9 +1,9 @@
+import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Stripe from "stripe";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-
 interface Props {
   product: Stripe.Product;
 }
@@ -33,9 +33,7 @@ export const ProductCard = ({ product }: Props) => {
             <p className="text-gray-600 text-sm mb-2">{product.description}</p>
           )}
           {price && price.unit_amount && (
-            <p className="text-lg font-semibold text-gray-900">
-              ${(price.unit_amount / 100).toFixed(2)}
-            </p>
+            <p className="text-lg font-semibold text-gray-900">{formatPrice(price.unit_amount)}</p>
           )}
           <Button className="mt-4 bg-black text-white cursor-pointer">View Details</Button>
         </CardContent>
